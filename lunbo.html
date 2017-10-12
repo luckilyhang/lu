@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<style>-->
+        <!--* {-->
+            <!--margin: 0;-->
+            <!--padding: 0;-->
+        <!--}-->
+
+        <!--ul {-->
+            <!--width: 3000px;-->
+            <!--list-style: none;-->
+            <!--position: absolute;-->
+            <!--top: 0;-->
+            <!--left: 0;-->
+        <!--}-->
+
+        <!--img {-->
+            <!--width: 500px;-->
+            <!--height: 312px;-->
+        <!--}-->
+
+        <!--li {-->
+            <!--float: left;-->
+        <!--}-->
+
+        <!--.box {-->
+            <!--width: 500px;-->
+            <!--height: 312px;-->
+            <!--margin: 100px auto;-->
+            <!--position: relative;-->
+            <!--overflow: hidden;-->
+        <!--}-->
+    <!--</style>-->
+</head>
+<body>
+<div class="box" id="box">
+    <ul id="ul">
+        <li><img src="images/1.jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+        <li><img src="images/4.jpg" alt=""></li>
+        <li><img src="images/5.jpg" alt=""></li>
+        <li><img src="images/1.jpg" alt=""></li>
+    </ul>
+</div>
+<ul>
+    <script src="jquery.js"></script>
+    <script>
+        $(function () {
+            $("*").css({margin: 0, padding: 0});
+            $("#ul").css({width: "3000", listStyle: "none", position: "absolute", top: "0", left: "0"});
+            $("img").css({width: "500", height: "312"});
+            $("li").css("float", "left");
+            $(".box").css({width:500, height: 312, margin: "100px auto", position: "relative", overflow: "hidden"
+            });
+//            var ul = document.getElementById("ul");
+//        var leader=0;
+//        var target=0;
+            var timer = null;
+            var index = 0;
+            timer = setInterval(function () {
+                index -=5;
+                index = index <= -2500 ? 0 : index;
+                $("#ul").css("left",index);
+//                ul.style.left = index + "px";
+            }, 30)
+//            var box = document.getElementById("box");
+            box.onmouseover = function (){
+                timer=clearInterval(timer);
+                }
+            box.onmouseout = function () {
+                timer = setInterval(function () {
+                    index -= 5;
+                    index = index <= -2500 ? 0 : index;
+                    $("#ul").css("left",index);
+//                    ul.style.left = index + "px";
+                }, 30)
+            }
+        })
+        //        setInterval(function(){
+        //            index++;
+        //            if(index==6){
+        //                index=0;
+        //            }
+        //            clearInterval(timer);
+        //            timer=setInterval(function(){
+        //                leader=leader+(target-leader)/10;
+        //                    ul.style.left=leader+"px";
+        //                    target=-500*index;
+        //
+        //                },30)
+        //
+        //        } ,2000)
+    </script>
+</body>
+</html>
